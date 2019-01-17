@@ -28,8 +28,10 @@
 
 lib
 
-### Eclipse ###
+### This Project in Eclipse ###
 .metadata
 .recommenders
 Servers
 trueDynamicWebApp/build
+firstWebApp/bin
+firstWebApp/WebContent/WEB-INF/classes/com/zcy/test/Person.class

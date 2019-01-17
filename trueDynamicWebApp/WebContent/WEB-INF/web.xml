@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	version="3.1" metadata-complete="true">
+
+
+	<!-- 配置当前web应用的初始化参数 -->
+	<context-param>
+		<param-name>driver</param-name>
+		<param-value>com.jdbc.mysql.Driver</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>jdbcUrl</param-name>
+		<param-value>jdbc:mysql:///test</param-value>
+	</context-param>
+
+
+	<!-- ============================================= -->
+
+	<!-- 配置和映射 Servlet -->
+	<servlet>
+		<!-- servlet 注册的名字 -->
+		<servlet-name>HelloServlet</servlet-name>
+		<!-- servlet 全类名 -->
+		<servlet-class>com.zcy.test.HelloServlet</servlet-class>
+
+		<!-- 配置初始化参数 -->
+		<init-param>
+			<param-name>user</param-name>
+			<param-value>root</param-value>
+		</init-param>
+	
+		<init-param>
+			<param-name>password</param-name>
+			<param-value>123</param-value>
+		</init-param>
+		
+		<!-- 指定servlet被创建的时间 -->
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<!-- 配置和映射 第二个 Servlet -->
+	<servlet>
+		<servlet-name>SecondServlet</servlet-name>
+		<servlet-class>com.zcy.test.SecondServlet</servlet-class>
+		<!-- <load-on-startup>2</load-on-startup> -->
+	</servlet>
+
+
+	<!-- 第一个servlet映射配置 -->
+	<servlet-mapping>
+		<!-- 需要和某个servlet节点的 servlet-name子节点一致 -->
+		<servlet-name>HelloServlet</servlet-name>
+		<!-- 映射的具体访问路径, "/" 代表当前WEB应用的根目录 -->
+		<url-pattern>/hello</url-pattern>
+	</servlet-mapping>
+
+	<!-- 第二个servlet映射配置 -->
+	<servlet-mapping>
+		<servlet-name>SecondServlet</servlet-name>
+		<url-pattern>/second</url-pattern>
+	</servlet-mapping>
+
+
+	<!-- LoginServlet 配置 -->
+	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>com.zcy.test.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/loginServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- LoginServlet2 配置 -->
+	<servlet>
+		<servlet-name>LoginServlet2</servlet-name>
+		<servlet-class>com.zcy.test.LoginServlet2</servlet-class>
+		<init-param>
+			<param-name>user</param-name>
+			<param-value>zcy</param-value>
+		</init-param>
+		<init-param>
+			<param-name>password</param-name>
+			<param-value>123</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginServlet2</servlet-name>
+		<url-pattern>/loginTest</url-pattern>
+	</servlet-mapping>
+	<!-- 参数改为全局参数 -->
+	<context-param>
+		<param-name>user</param-name>
+		<param-value>zcy</param-value>
+	</context-param>
+	<context-param>
+		<param-name>password</param-name>
+		<param-value>123</param-value>
+	</context-param>
+	
+</web-app>
