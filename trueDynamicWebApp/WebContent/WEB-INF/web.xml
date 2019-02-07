@@ -79,7 +79,7 @@
 	<!-- LoginServlet2 配置 -->
 	<servlet>
 		<servlet-name>LoginServlet2</servlet-name>
-		<servlet-class>com.zcy.test.LoginServlet2</servlet-class>
+		<servlet-class>com.zcy.generic.Login2</servlet-class>
 		<init-param>
 			<param-name>user</param-name>
 			<param-value>zcy</param-value>
